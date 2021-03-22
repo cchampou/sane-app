@@ -22,14 +22,8 @@ Future<List<NewsModel>> fetchNews() async {
 
   developer.log(response.statusCode.toString());
   if (response.statusCode == 200) {
-    // If the server did return a 200 OK response,
-    // then parse the JSON.
-    developer.log(response.body.toString());
-    // return NewsModel.fromJson(jsonDecode(response.body));
     return List.from(jsonDecode(response.body).map((e) => NewsModel.fromJson(e)));
   } else {
-    // If the server did not return a 200 OK response,
-    // then throw an exception.
     throw Exception('Failed to load album');
   }
 }

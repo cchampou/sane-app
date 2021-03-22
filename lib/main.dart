@@ -45,7 +45,17 @@ class _NewsState extends State<News> {
         future: futureNews,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return Text(snapshot.data[0].message);
+            return ListView.builder(
+              itemCount: snapshot.data.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Card(
+                  child: Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: Text(snapshot.data[index].message),
+                  ),
+                );
+              },
+            );
           } else if (snapshot.hasError) {
             return Text("${snapshot.error}");
           }
