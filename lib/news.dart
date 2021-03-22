@@ -18,7 +18,7 @@ class NewsModel {
 }
 
 Future<List<NewsModel>> fetchNews() async {
-  final response = await http.get(Uri.http('192.168.1.19:8000', 'news'));
+  final response = await http.get(Uri.https('sane.cchampou.me', 'news'));
 
   developer.log(response.statusCode.toString());
   if (response.statusCode == 200) {
