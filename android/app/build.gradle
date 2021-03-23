@@ -39,12 +39,14 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.cchampou.sane"
         minSdkVersion 16
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        ndk {
+            debugSymbolLevel 'FULL'
+        }
     }
 
     signingConfigs {
@@ -60,6 +62,8 @@ android {
             signingConfig signingConfigs.release
         }
     }
+
+    ndkVersion "22.0.7026061"
 }
 
 flutter {
